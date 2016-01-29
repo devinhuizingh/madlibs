@@ -1,0 +1,57 @@
+body {
+	
+	width: 60%;
+	margin: 0 auto;
+	margin-top: 2em;
+}
+
+span {
+	text-decoration: underline;
+}
+
+.masthead {
+	outline: solid;
+	height: 104px;
+	}
+
+.col-xs-3 {
+	
+	border-right: solid;
+	
+}
+
+.entry, .paragraph {
+	outline: solid;
+}
+
+
+h1 {
+	width: 100%
+}
+
+.logo {
+	float: right;
+	width: 500px;
+	font-size: 2.5em;
+	text-align: center;
+
+}
+
+img {
+	margin: 0 auto;
+}
+
+table {
+	margin: 0 auto;
+}
+
+.entry {
+	border-bottom: solid;
+}
+
+@media screen and (max-width: 670px) {
+	.smiley {
+		display: none;
+	}
+}
+
