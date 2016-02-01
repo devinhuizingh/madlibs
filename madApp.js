@@ -1,7 +1,7 @@
 angular.module('madApp', [])
 	.controller('myCtrl', function($scope) {
 		
-		$scope.female = true
+		
 		$scope.name = 'Name'
 		$scope.jobtitle = 'Job Title'
 		$scope.tedioustask= 'Tedious Task'
