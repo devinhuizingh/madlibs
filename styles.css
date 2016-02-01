@@ -5,7 +5,7 @@ body {
 	margin-top: 2em;
 }
 
-span {
+.line {
 	text-decoration: underline;
 }
 
@@ -53,5 +53,9 @@ table {
 	.smiley {
 		display: none;
 	}
+}
+
+input {
+	    margin-right: 3px;
 }
 
