@@ -8,60 +8,59 @@
 
 </head>
 <body ng-controller="myCtrl">
+
 	<div class="masthead row center-xs">
-		 
-			
-				<div class="smiley col-xs-3">
-					<div class="box"><img src="mad-lib-happy-face.png" alt="Smiley" style="width:100px;height:100px;">
-					</div>
-				</div>
-				<div class="col-xs-9">
-					<img src="ng-mad-libs-logo.png" alt="Logo" style="width:175px;height:55px;"><br>
-					Automate This!
-				</div>
-			
-		
-		
-	</div>
-
-
-	<div class="entry row center-xs">
-		 
-		<div class="radio">
-		<input type="radio" name= "gender" value="male" ng-model="formData.gender" ng-init"male=false">Male<br>
-		<input type="radio" name= "gender" value="female" ng-model="formData.gender" ng-init"female=true">Female
+		 			
+		<div class="smiley col-xs-3">
+			<div class="box"><img src="mad-lib-happy-face.png" alt="Smiley" style="width:100px;height:100px;">
+			</div>
 		</div>
-
-
-	
-		<h1>Provide the following words:</h1><br>
-
-
-			<p><input type="text" ng-model="name"></p>
-			<p><input type="text" ng-model="jobtitle"></p>
-			<p><input type="text" ng-model="tedioustask" ></p>
-			
-			
-			<p><input type="text" ng-model="dirtytask"></p>
-			<p><input type="text" ng-model="celebrity"></p>
-			<p><input type="text" ng-model="uselessskill"></p>
-			
-			<p><input type="text" ng-model="adjective"></p>
-			<p><input type="text" ng-model="obnoxiouscelebrity"></p>
-			<p><input type="text" ng-model="hugenumber"></p>
-			
-		 
-		
+		<div class="col-xs-9">
+			<img src="ng-mad-libs-logo.png" alt="Logo" style="width:175px;height:55px;"><br>
+			Automate This!
+		</div>
 	</div>
-	<div class="paragraph row center-xs">
-		<p><span id="line">{{name}}</span> was a <span id="line">{{jobtitle}}</span> who loved technology. Although <span ng-if='formData.gender==female'>s</span>he loved parts of the job, <span ng-if='formData.gender==female'>s</span>he absolutely hated  <span id="line">{{tedioustask}}</span> and <span id="line">{{dirtytask}}</span>. So, <span id="line">{{name}}</span> met with the famed life mentor <span id="line">{{celebrity}}</span> who said to learn how to <span id="line">{{uselessskill}}</span> with Thinkful. Thinkful didn't offer a course on <span id="line">{{uselessskill}}</span> so <span ng-if='formData.gender==female'>s</span>he studied programming instead.</p>
+
+
+	<div class="entry row center-xs" ng-show="!submitted" >
+		
+			<h1>Provide the following words:</h1><br>
+
+			<form name="inputForm" novalidate ng-submit="submit()" >
+				<div class="radio">
+				<input type="radio" name= "gender" ng-value="false" ng-model="gender" >Male
+				<input type="radio" name= "gender" ng-value="true" ng-model="gender">Female
+				</div>
+				
+				<input type="text" name="name" ng-model="name" required>
+
+				<input type="text" name="jobtitile" ng-model="jobtitle" required>
+				<input type="text" name="tedioustask"ng-model="tedioustask" required>
+				<input type="text" name="dirtytask" ng-model="dirtytask" required>
+				<input type="text" name="celebrity" ng-model="celebrity" required>
+				<input type="text" name="uselessskill" ng-model="uselessskill" required>
+				<input type="text" name="adjective" ng-model="adjective" required>
+				<input type="text" name="obnoxiouscelebrity" ng-model="obnoxiouscelebrity" required>
+				<input type="number" name="hugenumber" ng-model="hugenumber" required>=Huge Number<br>
+				<input type="submit" id="submit" value="Submit">
+				
+				<p>{{ inputForm.name.$error.required }}</p>
+				<h1 ng-if="inputForm.$invalid">
+				You must enter something in every box
+				</h1>
+			
+			</form>
+			
+	</div>
+		
+		
+		
+	<div class="paragraph row center-xs" ng-show="submitted">
+		<p><span id="line">{{name}}</span> was a <span id="line">{{jobtitle}}</span> who loved technology. Although <span ng-if='gender'>s</span>he loved parts of the job, <span ng-if='gender'>s</span>he absolutely hated  <span id="line">{{tedioustask}}</span> and <span id="line">{{dirtytask}}</span>. So, <span id="line">{{name}}</span> met with the famed life mentor <span id="line">{{celebrity}}</span> who said to learn how to <span id="line">{{uselessskill}}</span> with Thinkful. Thinkful didn't offer a course on <span id="line">{{uselessskill}}</span> so <span ng-if='gender'>s</span>he studied programming instead.</p>
  
 		<p>What a great decision! With new skills, <span id="line">{{name}}</span> built a(n) <span id="line">{{adjective}}</span> robot named <span id="line">{{obnoxiouscelebrity}}</span> that not only loved <span id="line">{{dirtytask}}</span> but did it <span id="line">{{hugenumber}}</span> times faster.</p>
-
-		{{ formData.gender }}
+		<button ng-click="click()">New Game</button>
 	</div>
-
-
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js" type="text/javascript"></script>
