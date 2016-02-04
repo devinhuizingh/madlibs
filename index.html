@@ -41,11 +41,11 @@
 				<input type="text" name="uselessskill" ng-model="uselessskill" required>
 				<input type="text" name="adjective" ng-model="adjective" required>
 				<input type="text" name="obnoxiouscelebrity" ng-model="obnoxiouscelebrity" required>
-				<input type="number" name="hugenumber" ng-model="hugenumber" required>=Huge Number<br>
+				<input type="number" name="hugenumber" ng-model="hugenumber" placeholder="Huge Number" required><br>
 				<input type="submit" id="submit" value="Submit">
 				
 				<p>{{ inputForm.name.$error.required }}</p>
-				<h1 ng-if="inputForm.$invalid">
+				<h1 ng-if="inputForm.$invalid && inputForm.$dirty">
 				You must enter something in every box
 				</h1>
 			

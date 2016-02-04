@@ -1,18 +1,6 @@
 angular.module('madApp', [])
 	.controller('myCtrl', function($scope) {
-		
-		
-		$scope.name = 'Name'
-		$scope.jobtitle = 'Job Title'
-		$scope.tedioustask= 'Tedious Task'
-		$scope.dirtytask= 'Dirty Task'
-		$scope.celebrity='Celebrity'
-		$scope.uselessskill='Useless Skill'
-		$scope.adjective='Adjective'
-		$scope.obnoxiouscelebrity='Obnoxious Celebrity'
-		$scope.hugenumber='Huge Number'
-		$scope.gender=true
-        $scope.submitted=false
+		init()
 
 	    $scope.submit = function(){
 		    if (this.inputForm.$valid) {
@@ -20,7 +8,10 @@ angular.module('madApp', [])
 		    };
 		}
 
-		$scope.click = function(){
+		$scope.click = init
+
+		function init(){
+			if ($scope.submitted) {$scope.inputForm.$setPristine()}
 			$scope.name = 'Name'
 			$scope.jobtitle = 'Job Title'
 			$scope.tedioustask= 'Tedious Task'
@@ -29,7 +20,8 @@ angular.module('madApp', [])
 			$scope.uselessskill='Useless Skill'
 			$scope.adjective='Adjective'
 			$scope.obnoxiouscelebrity='Obnoxious Celebrity'
-			$scope.hugenumber='Huge Number'
+			$scope.hugenumber=null
+			$scope.gender=true
 			$scope.submitted=false
 			
 		}
