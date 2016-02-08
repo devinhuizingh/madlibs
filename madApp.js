@@ -1,7 +1,10 @@
-angular.module('madApp', [])
+angular.module('madApp', ['ngAnimate'])
 	.controller('myCtrl', function($scope) {
+		
+
 		init()
 
+	    
 	    $scope.submit = function(){
 		    if (this.inputForm.$valid) {
 		    	$scope.submitted=true
@@ -9,6 +12,7 @@ angular.module('madApp', [])
 		}
 
 		$scope.click = init
+
 
 		function init(){
 			if ($scope.submitted) {$scope.inputForm.$setPristine()}
